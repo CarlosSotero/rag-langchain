@@ -16,7 +16,7 @@ CAMINHO_DB = "faiss_index"
 # Configuração da interface
 st.set_page_config(page_title="Assistente RAG", layout="wide")
 st.title("🔍 Assistente de Perguntas sobre PDFs com RAG")
-abas = st.tabs(["Consultar Base", "Atualizar Base"])
+abas = st.tabs(["Consultar Base", "Criar / Atualizar Base"])
 
 # Aba 1 - Consulta
 with abas[0]:
