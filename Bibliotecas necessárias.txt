@@ -1,1 +1,1 @@
-langchain-community langchain-chroma chromadb pypdf sentence-transformers
+langchain-community langchain-chroma chromadb pypdf sentence-transformers -U langchain-huggingface

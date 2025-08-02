@@ -48,8 +48,9 @@ def dividir_documentos_em_chunks(documentos):
 
 def vetorizar_chunks(chunks):
        
-    # Cria o vetor de embeddings usando o modelo 'sentence-transformers/all-MiniLM-L6-v2'
-    embeddings = HuggingFaceEmbeddings(model_name='sentence-transformers/all-MiniLM-L6-v2')
+    # Cria o vetor de embeddings usando o modelo 'sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2'
+    embeddings = HuggingFaceEmbeddings(model_name='sentence-transformers/paraphrase-multilingual-mpnet-base-v2',
+                                       encode_kwargs={'normalize_embeddings': True})
     
     # Cria o banco de dados de vetores usando Chroma
     db = Chroma.from_documents(chunks, embeddings, persist_directory='C:/Users/CarlosSotero/OneDrive/Documentos/Python Scripts/Curso Cientista de Dados - DNC/Desafio DNC -Desenvolvendo uma IA Generativa para a Oscar/LangChain Projeto RAG/db')
@@ -58,5 +59,5 @@ def vetorizar_chunks(chunks):
     db.persist()
     print('Banco de dados criado com sucesso!')
 
-
+# Executa a função para criar o banco de dados
 criar_db()
