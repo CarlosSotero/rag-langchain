@@ -1,45 +1,70 @@
 # rag-langchain
-# RAG em Python
+## RAG em Python com LangChain, Streamlit e Mistral
 
-Este é um projeto em desenvolvimento que implementa um sistema de Recuperação Aumentada por Geração (RAG) usando Python. A ideia é integrar uma base de dados com um modelo de linguagem para responder perguntas de forma inteligente.
+Este é um projeto em desenvolvimento que implementa um sistema de Recuperação Aumentada por Geração (RAG) usando Python. A proposta é integrar documentos PDF a um modelo de linguagem para responder perguntas de forma inteligente.
 
 ## 🚧 Status do Projeto
 
-🔨 Em desenvolvimento  
-📅 Última atualização: 02/08/2025  
-✅ Banco de dados implementado  
-✅ Arquivo principal adicionado  
-🔜 Interface gráfica em construção  
-🔜 Deploy planejado via **Hugging Face Spaces** ou **Streamlit Cloud**
-
+🔨 Concluído  
+✅ Banco vetorial com FAISS (compatível com o Streamlit Cloud)  
+✅ Integração com modelo LLM (Mistral via OpenRouter)  
+✅ Interface gráfica criada com Streamlit  
+✅ Upload dinâmico de novos PDFs  
+✅ Deploy funcionando no **Streamlit Cloud** 
 
 ## 📁 Estrutura atual
 
-- `criar_db.py`: script responsável pela criação e manipulação do banco de dados
-- `main.py`: lógica principal do sistema RAG
-- `gui/`: (em breve) interface gráfica
+- `criar_db.py`: script original para criação do banco vetorial a partir dos PDFs
+- `main.py`: aplicação principal com interface Streamlit (consultas e upload de novos arquivos)
+- `uploud_novos_arquivos.py`: lógica modular para processar novos PDFs e atualizar o banco
+- `requirements.txt`: dependências do projeto
+- `uploads_temp/`: pasta temporária usada no deploy
 
 ## 📌 Objetivo
 
-Criar uma aplicação que utiliza RAG para responder perguntas com base em uma base de dados local, com interface gráfica amigável.
+Criar uma aplicação de perguntas e respostas baseada em documentos locais (PDFs), utilizando RAG com LangChain, modelo Mistral e interface simples via Streamlit.
 
-## 🧠 Tecnologias
-- Python
-- LangChain
-- ChromaDB
-- Mistral (via Ollama ou API)
-- Sentence Transformers (HuggingFace)
-- dotenv
-- Gradio (interface futura)
+## 🧠 Tecnologias Utilizadas
 
-## 📎 Como rodar (em breve)
+- **Python**
+- **LangChain**
+- **FAISS** (banco vetorial)
+- **Mistral** (via OpenRouter)
+- **Sentence Transformers** (modelo `paraphrase-multilingual-mpnet-base-v2`)
+- **Streamlit** (interface gráfica)
+- **dotenv** (gerenciamento de chaves)
 
-Instruções de instalação e execução serão adicionadas conforme o projeto avança.
+## ▶️ Como Executar (localmente)
 
-## 🤝 Contribuições
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/seu-usuario/rag-langchain.git
+   cd rag-langchain
 
-Ainda não está aberto para contribuições externas, mas sugestões são bem-vindas!
+2. Crie um ambiente virtual (opcional):
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # Linux/Mac
+   venv\Scripts\activate     # Windows
 
-## 📄 Licença
+3. Instale as dependências:
+   ```bash
+   pip install -r requirements.txt
+   
+4. Crie um arquivo .env com sua chave da OpenRouter:
+   ```bash
+   OPENROUTER_API_KEY=sua_chave_aqui
 
-MIT License
+5. Rode o app:
+   ```bash
+   streamlit run main.py
+   
+☁️ Como Acessar Online  
+🔗 [Clique aqui para abrir a aplicação no Streamlit](https://rag-pdf-carlos-sotero.streamlit.app/)
+
+
+🤝 Contribuições  
+Atualmente o projeto não está aberto para contribuições externas, mas feedbacks e sugestões são sempre bem-vindos!  
+
+📄 Licença
+Distribuído sob a MIT License. Consulte o arquivo LICENSE para mais detalhes.
